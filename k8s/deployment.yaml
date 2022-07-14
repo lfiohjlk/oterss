@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sec
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sec
+  template:
+    metadata:
+      labels:
+        app: sec
+    spec:
+      containers:
+      - image: okteto.dev/sec:latest
+        name: sec
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: ProxySite
+          value: "bing.com"
+        - name: Vless_UUID
+          value: "f42c1b72-ff0c-4c51-8c7a-0ab6edfe7dce"
+        - name: Vless_Path
+          value: "/ojbIs"
+        - name: Vmess_UUID
+          value: "f42c1b72-ff0c-4c51-8c7a-0ab6edfe7dce"
+        - name: Vmess_Path
+          value: "/DUXFN"
+        - name: Share_Path
+          value: "/share233"
